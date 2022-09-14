@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"golang/accounts"
+)
 
 func main() {
-	fmt.Print("hi");
+	account := accounts.NewAccount("park")
+	fmt.Println(account);
 }
