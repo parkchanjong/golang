@@ -2,19 +2,15 @@ package main
 
 import (
 	"fmt"
-	"golang/accounts"
+	"golang/mydict"
 )
 
 func main() {
-	account := accounts.NewAccount("park")
-	account.Deposit(10)
-
-	fmt.Println(account)
-	
-	fmt.Println(account.Balance())
-	err := account.Withdraw(20)
+	dictionary := mydict.Dictionary{"first": "First word"}
+	definition, err := dictionary.Search("first")
 	if err != nil {
 		fmt.Println(err)
+	} else {
+		fmt.Println(definition)
 	}
-	fmt.Println(account.Balance())
 } 
