@@ -6,14 +6,18 @@ import (
 )
 
 func main() {
-	go count("park")
-	go count("jong")
-	time.Sleep(time.Second * 5)
+	c := make(chan bool)
+	people := [2]string{"park", "jong"}
+	for _, person := range people {
+		go isPerson(person, c)
+	}
+	fmt.Println(<-c)
+	fmt.Println(<-c)
+	fmt.Println(<-c)
 }
 
-func count(person string) {
-	for i := 0; i < 10; i++ {
-		fmt.Println(person, "count", i)
-		time.Sleep(time.Second)
-	}
+func isPerson(person string, c chan bool) {
+	time.Sleep(time.Second * 5)
+	fmt.Println(person)
+	c <- true
 }

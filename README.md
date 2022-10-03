@@ -1,3 +1,6 @@
 # golang
 
-### study
+
+* Goroutines
+  * 동시작업
+  
